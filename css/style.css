@@ -4944,10 +4944,10 @@ html [class*='section-'].section-bottom-0 {
 
 @media (min-width: 768px) {
 	.section-sm {
-		padding: 187px 0; /*DISTANCIA ENTRE VIDEO Y IMAGEN */
+		padding: 187px 60; /*DISTANCIA ENTRE VIDEO Y IMAGEN */
 	}
 	.section-md {
-		padding: 187px 0; /*foto de karim nootbook*/
+		padding: 187px 60; /*foto de karim nootbook*/
 	}
 	.section-lg {
 		padding: 85px 0;

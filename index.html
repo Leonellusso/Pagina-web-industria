@@ -245,20 +245,44 @@
      
         
           <!--video institucional-->
-         <div class="video-container2">
-          <div class="video-shadow"></div>
-          <div class="video-wrapper">
-            <video id="video" controls autoplay>
-              <source src="Video/Video Institucional CAPEMI.mp4" type="video/mp4">
-              Tu navegador no admite la reproducción de videos.
-            </video>
-            <button id="play-button" onclick="playVideo()">
-              <i class="fas fa-play"></i>
-            </button>
-            </button>
+          <div class="video-container2">
+            <div class="video-shadow"></div>
+            <div class="video-wrapper">
+              <video id="video" controls>
+                <source src="Video/Video Institucional CAPEMI.mp4" type="video/mp4">
+                Tu navegador no admite la reproducción de videos.
+              </video>
+              <button id="play-button" onclick="playVideo()">
+                <i class="fas fa-play"></i>
+              </button>
+            </div>
+            <div class="video-title">Video Institucional</div>
           </div>
-          <div class="video-title">Video Institucional</div>
-        </div>
+          
+          <script>
+            // Obtener el elemento del video
+            const video = document.getElementById('video');
+          
+            // Función para reproducir el video
+            function playVideo() {
+              video.play();
+              document.getElementById('play-button').style.display = 'none';
+            }
+          
+            // Crear un observador de intersección
+            const observer = new IntersectionObserver(entries => {
+              entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                  // El video está en la vista, reproducirlo
+                  playVideo();
+                  observer.unobserve(entry.target);
+                }
+              });
+            });
+          
+            // Observar el contenedor del video
+            observer.observe(document.querySelector('.video-container2'));
+          </script>
         
     
       <!--CARACTERISTICAS-->
@@ -350,7 +374,7 @@
     <div class="row justify-content-center">
       <div class="col-xl-4 col-md-6 col-12 wow fadeInDown" data-wow-delay=".3s">
         <div class="pricing-box bg-dark-gray">
-          <img src="images/Lineas/CIRCULOS/Línea liviana.WEB" alt="Linea Liviana" class="pricing-box-image">
+          <img src="images/Lineas/CIRCULOS/Línea liviana.webp" alt="Linea Liviana" class="pricing-box-image">
           <div class="pricing-box-inner">
             <span class="pricing-box-price">Línea Liviana</span>
           </div>
@@ -359,7 +383,7 @@
       </div>
       <div class="col-xl-4 col-md-6 col-12 wow fadeInUp" data-wow-delay=".4s">
         <div class="pricing-box bg-dark-gray">
-          <img src="images/Lineas/CIRCULOS/Otros mercados.png" alt="Linea Pesada" class="pricing-box-image">
+          <img src="images/Lineas/CIRCULOS/Otros mercados (1).webp" alt="Linea Pesada" class="pricing-box-image">
           <div class="pricing-box-inner">
             <span class="pricing-box-price">Línea Pesada</span>
           </div>
@@ -368,7 +392,7 @@
       </div>
       <div class="col-xl-4 col-md-6 col-12 wow fadeInDown" data-wow-delay=".5s">
         <div class="pricing-box bg-dark-gray">
-          <img src="images/Lineas/CIRCULOS/Línea Pesada.png" alt="Otros Mercados" class="pricing-box-image">
+          <img src="images/Lineas/CIRCULOS/Línea Pesada.webp " alt="Otros Mercados" class="pricing-box-image">
           <div class="pricing-box-inner">
             <span class="pricing-box-price">Otros Mercados</span>
           </div>
