@@ -244,45 +244,45 @@
         </div>
      
         
-          <!--video institucional-->
-          <div class="video-container2">
-            <div class="video-shadow"></div>
-            <div class="video-wrapper">
-              <video id="video" controls>
-                <source src="Video/Video Institucional CAPEMI.mp4" type="video/mp4">
-                Tu navegador no admite la reproducción de videos.
-              </video>
-              <button id="play-button" onclick="playVideo()">
-                <i class="fas fa-play"></i>
-              </button>
-            </div>
-            <div class="video-title">Video Institucional</div>
+        <div class="video-container2">
+          <div class="video-shadow"></div>
+          <div class="video-wrapper">
+            <video id="video" controls autoplay muted>
+              <source src="Video/Video Institucional CAPEMI.mp4" type="video/mp4">
+              Tu navegador no admite la reproducción de videos.
+            </video>
+            <button id="play-button" onclick="playVideo()">
+              <i class="fas fa-play"></i>
+            </button>
           </div>
-          
-          <script>
-            // Obtener el elemento del video
-            const video = document.getElementById('video');
-          
-            // Función para reproducir el video
-            function playVideo() {
+          <div class="video-title">Video Institucional</div>
+        </div>
+        
+        <script>
+          // Función para verificar si el video está visible en la ventana gráfica
+          function isElementInViewport(el) {
+            var rect = el.getBoundingClientRect();
+            return (
+              rect.top >= 0 &&
+              rect.left >= 0 &&
+              rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+              rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+          }
+        
+          // Función para reproducir el video cuando esté visible en la ventana gráfica
+          function playVideoIfVisible() {
+            var video = document.getElementById("video");
+            if (isElementInViewport(video)) {
               video.play();
-              document.getElementById('play-button').style.display = 'none';
+              window.removeEventListener("scroll", playVideoIfVisible); // Dejar de escuchar el evento scroll después de iniciar la reproducción
             }
-          
-            // Crear un observador de intersección
-            const observer = new IntersectionObserver(entries => {
-              entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                  // El video está en la vista, reproducirlo
-                  playVideo();
-                  observer.unobserve(entry.target);
-                }
-              });
-            });
-          
-            // Observar el contenedor del video
-            observer.observe(document.querySelector('.video-container2'));
-          </script>
+          }
+        
+          // Escuchar el evento scroll y verificar si el video está visible al cargar la página
+          window.addEventListener("scroll", playVideoIfVisible);
+          window.addEventListener("DOMContentLoaded", playVideoIfVisible);
+        </script>
         
     
       <!--CARACTERISTICAS-->
@@ -403,7 +403,8 @@
 <BR>
 <BR>
 <BR>  
-<BR>     
+<BR>
+  <BR>     
     
        <!--CATALOGO DIGITAL-->
     
@@ -416,7 +417,7 @@
             </div>
           </div>
           <div class="ad-container animate-in-on-scroll">
-            <img src="images/Catalogo/bannercapemi.png" alt="publicidad" class="ad-image" onclick="downloadAndReload()">
+            <img src="images/Catalogo/bannercapemi.webp" alt="publicidad" class="ad-image" onclick="downloadAndReload()">
           </div>
           <div class="col-29 text-center col-md-19 col-lg-19">
             <button class="apply-button" onclick="downloadAndReload()">
@@ -424,12 +425,13 @@
             </button>
           </div>
         </div>
-      
-       </section>
+      </div>
+    </div>
+   </section>
        
             
      
-
+      <!--MARCAS-->
       <section class="section section-md bg-dark">
         <div class="container">
           <div class="row justify-content-center">
