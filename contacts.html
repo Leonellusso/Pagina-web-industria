@@ -142,16 +142,44 @@
 
        <!--Mailform-->
        <BR>
-        <BR>
-          <BR>
-            <BR>
-      <div class="row justify-content-center">
-        <div class="col-xl-6 col-md-8 col-12 text-center">
-            <H1>¿Interesado en nuestras vacantes? <br> ¡Visita nuestro perfil en LinkedIn!</H1>
-            <a href="https://www.linkedin.com/tu_perfil" target="_blank" style="font-size: 50px;">Ver nuestras vacantes</a>
+        <div class="row justify-content-center">
+          <div class="col-xl-6 col-md-8 col-12 text-center">
+            <div class="button-container" style="text-align: center;">
+              <a href="#vacantes" style="text-decoration: none;">
+                <img src="images/Iconos/Linkedin.png" alt="Imagen del botón" class="logo-animation">
+                <p style="margin-top: 10px; font-size: 40px;" class="text-animation">"Conoce nuestras vacantes"</p>
+              </a>
+            </div>
+          </div>
         </div>
-    </div>
-</div>
+        
+        <!-- Agrega el siguiente CSS en tu archivo HTML o en un archivo de estilos separado -->
+        <style>
+          @keyframes logoFadeIn {
+            0% { opacity: 0; transform: translateY(-50px); }
+            100% { opacity: 1; transform: translateY(0); }
+          }
+        
+          @keyframes textFadeIn {
+            0% { opacity: 0; transform: translateY(50px); }
+            100% { opacity: 1; transform: translateY(0); }
+          }
+        
+          .logo-animation {
+            animation: logoFadeIn 1s ease forwards;
+          }
+        
+          .text-animation {
+            animation: textFadeIn 1s ease forwards;
+          }
+        </style>
+        
+        <br>
+        <br>
+        <br>
+        <br>
+
+
       <section class="section section-md">
         <div class="container">
           <!--RD Mailform-->
